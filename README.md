@@ -4,7 +4,9 @@ This is a sample implementation of two-factor authentication using the OneAPI4SM
 
 ## How does it work?
 
-This example presents you with a login form which takes any username and password. Upon logging in, you will receive a text message to your mobile number (obviously, you will need to put together the nuts and bolts for grabbing the username, user id and the user's phone number of the database after checking to make sure they've entered a correct password.
+This example presents you with a login form which takes any username and password, along with a phone number in the form of 5550123456. Upon logging in, you will receive a text message to your mobile number. 
+
+Obviously, you will need to put together the nuts and bolts for grabbing the username, user id and the user's phone number from the database and check to make sure that they've entered a correct password.
 
 We set up a session variable called `tf_token` which stores a 4 character token we've randomly generated; This token is also sent to the user's phone number via the OneAPI4SMS API, and the user is expected to provide it on the verification form which appears after successfully logging in.
 
@@ -16,11 +18,9 @@ A suggested schema for the authorized devices table can be found in `trusted_dev
 
 ## Configuration
 
-In `post.php` you will need to configure your OneAPI4SMS credentials, along with adding a phone number associated to your account in the following manner:
+In `post.php` you will need to configure your OneAPI4SMS credentials.
 ```php
 $sms_api = new OneApi4Sms('your-customer-id', 'your-password');
-
-$data = $sms_api->sendSMS('phone-number', $message, $user_phone);
 ```
 If you're having trouble sending a message, you can debug the message sending procedure by using `print_r($data)`.
 

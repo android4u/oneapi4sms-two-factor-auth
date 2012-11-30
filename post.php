@@ -12,7 +12,7 @@ if($_POST['action'] == 'login')
     * Add your own logic here to query the database to find the user, verify their password and retrieve their phone number.
     */
     
-    $user_phone = '555-555-5555';
+    $user_phone = $_POST['phone'];
  
     if ($tf_auth->checkAuthorizedDevice() == false)
     {

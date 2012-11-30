@@ -33,6 +33,9 @@ session_start();
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" value=""/>
+        
+        <label for="password">Phone (in the form of 5550123456)</label>
+        <input type="text" name="phone" id="phone" value=""/>
 
         <p><input type="submit" name="Login" value="Login"/></p>
     </form>
